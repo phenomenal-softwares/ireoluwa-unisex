@@ -12,10 +12,9 @@ import { Link } from "react-router-dom";
 function FeaturedProducts({ products = [] }) {
   const [index, setIndex] = useState(-1);
 
-  // ✅ Only top 6 products
-  const featuredProducts = products.slice(0, 6);
+  // ✅ Only featured products (max 6)
+  const featuredProducts = products.filter((p) => p.isFeatured).slice(0, 6);
 
-  // For mobile arrows
   const scrollContainer = (dir) => {
     const container = document.getElementById("featured-scroll");
     if (container) {
@@ -27,19 +26,20 @@ function FeaturedProducts({ products = [] }) {
   if (!featuredProducts.length) {
     return (
       <div className="text-center py-20 text-gray-500">
-        No products available.
+        No featured products available.
       </div>
     );
   }
 
   return (
-    <div className="py-16 bg-[#E6E6FA] relative"> {/* Lavender background */}
+    <div className="py-16 bg-[#E6E6FA] relative">
+      {" "}
+      {/* Lavender background */}
       <div className="max-w-6xl mx-auto px-4">
         <h2 className="text-3xl font-bold text-center text-[#5D3A6A] mb-12">
           Featured Products
         </h2>
 
-        {/* Horizontal scroll for mobile, 3-col grid for lg */}
         <div className="relative">
           <div
             id="featured-scroll"
@@ -47,15 +47,18 @@ function FeaturedProducts({ products = [] }) {
           >
             {featuredProducts.map((product, i) => (
               <div
-                key={i}
+                key={product.id}
                 className="w-64 sm:w-72 lg:w-auto flex-shrink-0 snap-center"
               >
-                <ProductCard product={product} onImageClick={() => setIndex(i)} />
+                <ProductCard
+                  product={product}
+                  onImageClick={() => setIndex(i)}
+                />
               </div>
             ))}
           </div>
 
-          {/* Overlay Arrows (only on mobile) */}
+          {/* Mobile arrows */}
           <button
             onClick={() => scrollContainer("left")}
             className="absolute top-1/2 -translate-y-1/2 left-2 bg-[#5D3A6A] text-white p-2 rounded-full shadow-md sm:hidden hover:bg-purple-900 transition"
@@ -70,17 +73,15 @@ function FeaturedProducts({ products = [] }) {
           </button>
         </div>
 
-        {/* 👉 View All button */}
         <div className="mt-10 text-center">
           <Link
-            to="/products"
+            to="/shop"
             className="inline-block bg-[#5D3A6A] hover:bg-purple-900 text-white px-6 py-3 rounded-lg font-semibold shadow-md transition"
           >
             View All Products
           </Link>
         </div>
 
-        {/* Lightbox with captions */}
         <Lightbox
           open={index >= 0}
           index={index}

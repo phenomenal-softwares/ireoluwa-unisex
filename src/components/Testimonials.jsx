@@ -6,29 +6,29 @@ const testimonials = [
   {
     id: 1,
     name: "Amaka Johnson",
-    role: "Food Blogger",
-    text: "The best jollof rice I've ever had! Pepper & Palm brings the real Naija taste to life. 🔥",
+    role: "Fashion Enthusiast",
+    text: "The quality of the outfits is amazing! Ireoluwa Unisex Store keeps me stylish and confident. 💜",
     avatar: "/avatars/testi-1.jpg",
   },
   {
     id: 2,
     name: "Chinedu Okeke",
-    role: "Businessman",
-    text: "Quick delivery and absolutely delicious meals. I felt like I was back home!",
+    role: "Entrepreneur",
+    text: "I was impressed with the fast delivery and premium designs. Perfect for both work and casual wear.",
     avatar: "/avatars/testi-2.jpg",
   },
   {
     id: 3,
     name: "Fatima Sule",
     role: "Student",
-    text: "Pepper soup was on point! This is now my go-to spot for comfort food.",
+    text: "I love the unisex collection. Comfortable, trendy, and budget-friendly. Highly recommended!",
     avatar: "/avatars/testi-3.jpg",
   },
   {
     id: 4,
     name: "James Adeyemi",
     role: "Engineer",
-    text: "Affordable, tasty, and always fresh. Highly recommend to everyone! 🌟",
+    text: "Excellent fabric and neat finishing. I get compliments every time I wear my new outfits. 🌟",
     avatar: "/avatars/testi-4.jpg",
   },
 ];
@@ -55,9 +55,9 @@ export default function Testimonials() {
   }, []);
 
   return (
-    <section className="py-20 bg-yellow-50">
+    <section className="py-20 bg-[#E6E6FA]">
       <div className="max-w-7xl mx-auto px-6 text-center">
-        <h2 className="text-4xl font-bold text-green-800 mb-12">
+        <h2 className="text-4xl font-bold text-[#5D3A6A] mb-12">
           What Our Customers Say
         </h2>
 
@@ -83,17 +83,17 @@ export default function Testimonials() {
               <img
                 src={t.avatar}
                 alt={t.name}
-                className="w-20 h-20 rounded-full object-cover mb-4 border-4 border-green-600"
+                className="w-20 h-20 rounded-full object-cover mb-4 border-4 border-[#5D3A6A]"
               />
               <p className="text-gray-700 italic mb-4">“{t.text}”</p>
-              <div className="flex mb-2 text-yellow-500">
+              <div className="flex mb-2 text-[#FFD700]">
                 {Array(5)
                   .fill(0)
                   .map((_, i) => (
                     <FiStar key={i} size={18} fill="currentColor" />
                   ))}
               </div>
-              <h4 className="font-semibold text-green-700">{t.name}</h4>
+              <h4 className="font-semibold text-[#5D3A6A]">{t.name}</h4>
               <span className="text-sm text-gray-500">{t.role}</span>
             </motion.div>
           ))}

@@ -61,7 +61,7 @@ function App() {
               }
             />
             <Route
-              path="/products"
+              path="/shop"
               element={
                 <Layout>
                   <ProductsPage products={products} />
@@ -69,7 +69,7 @@ function App() {
               }
             />
             <Route
-              path="/cart"
+              path="/order"
               element={
                 <Layout>
                   <OrderPage />

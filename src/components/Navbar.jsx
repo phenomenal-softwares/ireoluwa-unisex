@@ -10,14 +10,15 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 import { useCart } from "../context/CartContext";
 
-// Example categories (replace later with products categories)
 const categories = [
   { name: "All Products", slug: "all" },
-  { name: "Men", slug: "men" },
-  { name: "Women", slug: "women" },
+  { name: "Suits & Blazers", slug: "suits" },
+  { name: "Tops", slug: "tops" },
+  { name: "Bottoms", slug: "bottoms" },
+  { name: "Headwear", slug: "headwear" },
   { name: "Accessories", slug: "accessories" },
   { name: "Footwear", slug: "footwear" },
-  { name: "Kids", slug: "kids" },
+  { name: "Native Wears", slug: "native" },
 ];
 
 function Navbar({ onCartToggle }) {
@@ -133,14 +134,14 @@ function Navbar({ onCartToggle }) {
             >
               <button
                 className={`${baseLink} ${
-                  location.pathname.startsWith("/products")
+                  location.pathname.startsWith("/shop")
                     ? "text-violet-400 after:w-full"
                     : ""
                 } flex items-center gap-1`}
                 aria-haspopup="true"
                 aria-expanded={menuOpen}
               >
-                Products <FiChevronDown className="mt-0.5" />
+                Shop <FiChevronDown className="mt-0.5" />
               </button>
 
               <AnimatePresence>
@@ -156,7 +157,7 @@ function Navbar({ onCartToggle }) {
                     {categories.map((cat) => (
                       <Link
                         key={cat.slug}
-                        to={`/products?category=${cat.slug}`}
+                        to={`/shop?category=${cat.slug}`}
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-violet-100 hover:text-violet-600"
                       >
                         {cat.name}
@@ -167,6 +168,16 @@ function Navbar({ onCartToggle }) {
               </AnimatePresence>
             </div>
 
+<Link
+              to="/order"
+              className={`${baseLink} ${
+                location.pathname.startsWith("/about")
+                  ? "text-violet-400 after:w-full"
+                  : ""
+              } flex items-center gap-1`}
+            >
+              Order
+            </Link>
             <Link
               to="/about"
               className={`${baseLink} ${
@@ -322,12 +333,12 @@ function Navbar({ onCartToggle }) {
               >
                 <span
                   className={
-                    location.pathname.startsWith("/products")
+                    location.pathname.startsWith("/shop")
                       ? "text-purple-900"
                       : ""
                   }
                 >
-                  Products
+                  Shop
                 </span>
                 <FiChevronDown
                   className={`transition-transform ${
@@ -360,7 +371,17 @@ function Navbar({ onCartToggle }) {
                   </motion.div>
                 )}
               </AnimatePresence>
-
+                <Link
+                to="/order"
+                className={
+                  location.pathname.startsWith("/order")
+                    ? "text-purple-900 font-medium"
+                    : "text-gray-800 hover:text-violet-400 font-medium"
+                }
+                onClick={() => setIsOpen(false)}
+              >
+                Order
+              </Link>
               <Link
                 to="/about"
                 className={

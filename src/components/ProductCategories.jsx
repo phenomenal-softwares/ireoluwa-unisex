@@ -77,7 +77,7 @@ export default function ProductCategories() {
               transition={{ delay: index * 0.12, duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <Link to={`/products?category=${cat.slug}`}>
+              <Link to={`/shop?category=${cat.slug}`}>
                 <img
                   src={cat.image}
                   alt={cat.name}
