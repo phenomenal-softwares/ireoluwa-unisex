@@ -33,7 +33,7 @@ function HomePage() {
       <Hero />
       <FeaturedProducts products={products} />
       <AboutUs />
-      <div id="shop">
+      <div id="products">
         <ProductCategories />
       </div>
       <SpecialOffer />

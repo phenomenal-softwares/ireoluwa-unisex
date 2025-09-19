@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiCheckCircle } from "react-icons/fi";
-import chefImg from "../assets/chef.png";
+import orderImg from "../assets/shopping-cart.jpg";
 
 function OrderPage() {
   const { cartItems, totalPrice, clearCart } = useCart();
@@ -30,17 +30,17 @@ function OrderPage() {
   if (cartItems.length === 0) {
     return (
       <div className="max-w-xl mx-auto px-4 py-16 text-center">
-        <h2 className="text-4xl text-red-700 font-bold mt-12">
+        <h2 className="text-4xl text-red-500 font-bold mt-12">
           Your cart is empty 🛒
         </h2>
         <p className="text-gray-600 my-6">
-          Looks like you haven’t added any delicious meals yet.
+          Looks like you haven’t added any items yet.
         </p>
         <button
-          onClick={() => navigate("/dishes")}
-          className="px-6 py-3 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 transition"
+          onClick={() => navigate("/shop")}
+          className="px-6 py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-700 transition"
         >
-          Browse Menu
+          Go to Shop
         </button>
       </div>
     );
@@ -48,7 +48,9 @@ function OrderPage() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-16">
-      <h1 className="text-2xl text-green-800 font-bold my-6">Order Checkout</h1>
+      <h1 className="text-2xl text-purple-800 font-bold my-6">
+        Order Checkout
+      </h1>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* Order Summary (top on mobile) */}
@@ -101,7 +103,7 @@ function OrderPage() {
             <input
               type="text"
               required
-              className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-green-600"
+              className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-purple-600"
             />
           </div>
 
@@ -110,16 +112,18 @@ function OrderPage() {
             <input
               type="tel"
               required
-              className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-green-600"
+              className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-purple-600"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium mb-1">Email Address</label>
+            <label className="block text-sm font-medium mb-1">
+              Email Address
+            </label>
             <input
               type="email"
               required
-              className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-green-600"
+              className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-purple-600"
             />
           </div>
 
@@ -130,7 +134,7 @@ function OrderPage() {
             <textarea
               rows="3"
               required
-              className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-green-600"
+              className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-purple-600"
             ></textarea>
           </div>
 
@@ -141,13 +145,13 @@ function OrderPage() {
             <textarea
               rows="2"
               placeholder="Optional"
-              className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-green-600"
+              className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-purple-600"
             ></textarea>
           </div>
 
           <button
             type="submit"
-            className="w-full py-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700"
+            className="w-full py-3 bg-purple-600 text-white font-semibold rounded-lg hover:bg-purple-700"
           >
             Place Order
           </button>
@@ -175,26 +179,26 @@ function OrderPage() {
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-                className="text-green-600 text-6xl flex justify-center"
+                className="text-purple-600 text-6xl flex justify-center"
               >
                 <FiCheckCircle />
               </motion.div>
 
-              {/* Chef image */}
+              {/* Order image */}
               <motion.img
-                src={chefImg}
+                src={orderImg}
                 alt="Chef"
-                className="w-40 mx-auto mt-4"
+                className="w-60 mx-auto mt-4 border-4 border-purple-200 rounded-lg"
                 initial={{ y: 50, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.4 }}
               />
 
-              <h2 className="text-2xl text-green-700 font-bold mt-4">
+              <h2 className="text-2xl text-purple-700 font-bold mt-4">
                 Order Successful!
               </h2>
               <p className="text-gray-600 mt-2">
-                Your delicious meal is on the way 🚀
+                Your stunning looks are on the way 🚀
               </p>
 
               {/* Buttons */}
@@ -204,17 +208,17 @@ function OrderPage() {
                   onClick={() => {
                     clearCart();
                     setShowModal(false);
-                    navigate("/dishes"); // back to menu
+                    navigate("/shop");
                   }}
-                  className="w-full px-6 py-3 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 transition"
+                  className="w-full px-6 py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-700 transition"
                 >
-                  Buy Another Meal
+                  Shop Again
                 </button>
 
                 {/* Secondary */}
                 <button
                   onClick={handleCloseModal}
-                  className="w-full px-6 py-3 text-green-700 font-semibold rounded-lg hover:bg-gray-100 transition"
+                  className="w-full px-6 py-3 text-purple-700 font-semibold rounded-lg hover:bg-gray-100 transition"
                 >
                   Back to Home
                 </button>

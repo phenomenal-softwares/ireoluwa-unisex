@@ -168,10 +168,10 @@ function Navbar({ onCartToggle }) {
               </AnimatePresence>
             </div>
 
-<Link
+            <Link
               to="/order"
               className={`${baseLink} ${
-                location.pathname.startsWith("/about")
+                location.pathname.startsWith("/order")
                   ? "text-violet-400 after:w-full"
                   : ""
               } flex items-center gap-1`}
@@ -371,7 +371,7 @@ function Navbar({ onCartToggle }) {
                   </motion.div>
                 )}
               </AnimatePresence>
-                <Link
+              <Link
                 to="/order"
                 className={
                   location.pathname.startsWith("/order")

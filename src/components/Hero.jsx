@@ -41,7 +41,7 @@ function Hero() {
           >
             Style for{" "}
             <span className="text-violet-400">Everyone</span>,{" "}
-            <span className="text-red-500">Everywhere.</span>
+            <span className="text-pink-400">Everywhere.</span>
           </motion.h1>
 
           <motion.p
