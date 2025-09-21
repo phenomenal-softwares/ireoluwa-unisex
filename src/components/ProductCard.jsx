@@ -56,7 +56,7 @@ function ProductCard({ product, onImageClick }) {
       className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow flex flex-col"
     >
       {/* Image */}
-      <div className="relative w-full h-48 overflow-hidden group">
+      <div className="relative w-full h-60 overflow-hidden group">
         <motion.img
           whileHover={{ scale: 1.1 }}
           transition={{ duration: 0.4 }}
