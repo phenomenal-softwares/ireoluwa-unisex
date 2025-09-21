@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { FiShoppingCart, FiMaximize2, FiStar } from "react-icons/fi";
+import { FaStar } from "react-icons/fa";
 import { useCart } from "../context/CartContext";
 import { useToast } from "../context/ToastContext";
 
@@ -18,6 +19,7 @@ function ProductCard({ product, onImageClick }) {
     category,
     sizes = [],
     colors = [],
+    isFeatured,
     rating,
     stock,
   } = product;
@@ -76,6 +78,13 @@ function ProductCard({ product, onImageClick }) {
         <span className="absolute top-3 left-3 bg-[#5D3A6A] text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md capitalize">
           {category}
         </span>
+
+        {/* Featured badge */}
+        {isFeatured && (
+          <span className="absolute bottom-3 left-3 bg-yellow-400 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
+            <FaStar className="inline-block mr-1" />
+          </span>
+        )}
 
         {/* Discount badge */}
         {onSale && (

@@ -43,7 +43,7 @@ function Navbar({ onCartToggle }) {
     e.preventDefault();
     const query = searchQuery.trim().toLowerCase();
     if (query) {
-      navigate(`/products?search=${encodeURIComponent(query)}`);
+      navigate(`/shop?search=${encodeURIComponent(query)}`);
       setSearchOpen(false);
       setSearchQuery("");
     }
@@ -82,8 +82,8 @@ function Navbar({ onCartToggle }) {
       className="bg-purple-900 shadow-md fixed w-full z-20 top-0 left-0"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16 items-center">
-          {/* Logo */}
+        <div className="flex justify-between h-16 items-center md:hidden">
+          {/* Mobile: Logo */}
           <Link to="/" className="flex items-center">
             <span className="text-2xl font-bold select-none">
               <span className="text-violet-400">Ireoluwa</span>{" "}
@@ -92,7 +92,7 @@ function Navbar({ onCartToggle }) {
           </Link>
 
           {/* Mobile Icons (search + cart) */}
-          <div className="flex items-center space-x-5 md:hidden">
+          <div className="flex items-center space-x-5">
             <button
               onClick={() => setSearchOpen((s) => !s)}
               aria-label="Open search"
@@ -114,8 +114,33 @@ function Navbar({ onCartToggle }) {
             </button>
           </div>
 
-          {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-8 items-center relative">
+          {/* Mobile Hamburger */}
+          <div className="flex items-center">
+            <button
+              onClick={() => setIsOpen((s) => !s)}
+              aria-label="Toggle menu"
+            >
+              {isOpen ? (
+                <FiX className="text-2xl text-gray-100" />
+              ) : (
+                <FiMenu className="text-2xl text-gray-100" />
+              )}
+            </button>
+          </div>
+        </div>
+
+        {/* Desktop Navbar */}
+        <div className="hidden md:grid grid-cols-3 items-center h-16">
+          {/* Left: Logo */}
+          <Link to="/" className="flex items-center">
+            <span className="text-2xl font-bold select-none">
+              <span className="text-violet-400">Ireoluwa</span>{" "}
+              <span className="text-white">Store</span>
+            </span>
+          </Link>
+
+          {/* Center: Nav Links */}
+          <div className="flex justify-center space-x-8">
             <NavLink
               to="/"
               end
@@ -174,7 +199,7 @@ function Navbar({ onCartToggle }) {
                 location.pathname.startsWith("/order")
                   ? "text-violet-400 after:w-full"
                   : ""
-              } flex items-center gap-1`}
+              }`}
             >
               Order
             </Link>
@@ -184,7 +209,7 @@ function Navbar({ onCartToggle }) {
                 location.pathname.startsWith("/about")
                   ? "text-violet-400 after:w-full"
                   : ""
-              } flex items-center gap-1`}
+              }`}
             >
               About
             </Link>
@@ -194,50 +219,33 @@ function Navbar({ onCartToggle }) {
                 location.pathname.startsWith("/contact")
                   ? "text-violet-400 after:w-full"
                   : ""
-              } flex items-center gap-1`}
+              }`}
             >
               Contact
             </Link>
+          </div>
 
-            {/* Desktop Search */}
-            <div className="relative" ref={searchRef}>
+          {/* Right: Search + Cart */}
+          <div className="flex justify-end items-center space-x-4">
+            <form
+              onSubmit={handleSearch}
+              className="flex items-center bg-white rounded-lg px-2 py-1 w-64"
+            >
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Search products..."
+                className="flex-1 px-2 py-1 text-sm text-gray-800 focus:outline-none"
+              />
               <button
-                onClick={() => setSearchOpen((s) => !s)}
-                aria-label="Toggle search"
+                type="submit"
+                className="px-3 py-1 bg-purple-900 text-white rounded hover:bg-violet-500 transition"
               >
-                <FiSearch className="text-gray-100 hover:text-violet-400 cursor-pointer text-xl" />
+                <FiSearch />
               </button>
-              <AnimatePresence>
-                {searchOpen && (
-                  <motion.form
-                    onClick={(e) => e.stopPropagation()}
-                    onSubmit={handleSearch}
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    transition={{ duration: 0.2 }}
-                    className="absolute right-0 mt-2 bg-violet-700 shadow-lg rounded-lg flex items-center px-2 py-1 space-x-2 w-64 z-50"
-                  >
-                    <input
-                      type="text"
-                      value={searchQuery}
-                      onChange={(e) => setSearchQuery(e.target.value)}
-                      placeholder="Search products..."
-                      className="flex-1 px-2 py-1 text-sm border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-violet-400"
-                      aria-label="Search products"
-                    />
-                    <button
-                      type="submit"
-                      className="px-3 py-1 bg-violet-400 text-white rounded hover:bg-violet-500 transition"
-                    >
-                      Go
-                    </button>
-                  </motion.form>
-                )}
-              </AnimatePresence>
-            </div>
+            </form>
 
-            {/* Cart */}
             <button
               onClick={onCartToggle}
               className="relative text-gray-100 hover:text-violet-400 cursor-pointer"
@@ -248,20 +256,6 @@ function Navbar({ onCartToggle }) {
                 <span className="absolute -top-2 -right-2 bg-violet-400 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full shadow">
                   {totalItems}
                 </span>
-              )}
-            </button>
-          </div>
-
-          {/* Mobile Hamburger */}
-          <div className="md:hidden flex items-center">
-            <button
-              onClick={() => setIsOpen((s) => !s)}
-              aria-label="Toggle menu"
-            >
-              {isOpen ? (
-                <FiX className="text-2xl text-gray-100" />
-              ) : (
-                <FiMenu className="text-2xl text-gray-100" />
               )}
             </button>
           </div>
@@ -286,12 +280,12 @@ function Navbar({ onCartToggle }) {
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search products..."
                 className="flex-1 px-2 py-1 text-sm border border-gray-300 rounded 
-                     focus:outline-none focus:ring-1 focus:ring-purple-900"
+                   focus:outline-none focus:ring-1 focus:ring-purple-900"
               />
               <button
                 type="submit"
                 className="px-3 py-1 bg-violet-400 text-white rounded 
-                     hover:bg-violet-500 transition"
+                   hover:bg-violet-500 transition"
               >
                 Go
               </button>
@@ -371,6 +365,7 @@ function Navbar({ onCartToggle }) {
                   </motion.div>
                 )}
               </AnimatePresence>
+
               <Link
                 to="/order"
                 className={
