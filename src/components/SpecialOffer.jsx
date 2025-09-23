@@ -21,10 +21,10 @@ export default function SpecialOffer() {
             ✨ Limited Time Offer ✨
           </p>
           <h2 className="text-4xl md:text-6xl font-extrabold leading-tight">
-            Elegant Unisex Outfit
+            Elegant Unisex Cardigan
           </h2>
           <p className="text-lg max-w-lg">
-            Step out in style with this premium lavender-inspired outfit. 
+            Step out in style with this premium lavender-inspired cardigan. 
             Designed for comfort, confidence, and a bold fashion statement.  
           </p>
 
@@ -40,7 +40,7 @@ export default function SpecialOffer() {
             whileTap={{ scale: 0.95 }}
             className="mt-4 px-8 py-3 bg-white text-[#5D3A6A] font-bold text-lg rounded-xl shadow-lg hover:bg-[#F8F0FF] transition"
           >
-            <Link to={"/products?category=unisex"}>Shop Now</Link>
+            <Link to={"/shop?category=special"}>Shop Now</Link>
           </motion.button>
         </motion.div>
 

@@ -7,6 +7,8 @@ import footwearImg from "../assets/footwear.jpg";
 import accessoriesImg from "../assets/accessories.jpg";
 import nativeImg from "../assets/native.jpg";
 import suitImg from "../assets/suits.jpg";
+import bagsImg from "../assets/bags.jpg";
+import headwearImg from "../assets/headwear.jpg";
 
 const categories = [
   {
@@ -39,6 +41,13 @@ const categories = [
   },
   {
     id: 5,
+    name: "Hats & Caps",
+    slug: "headwear",
+    desc: "Hats, caps & stylish headgear.",
+    image: headwearImg,
+  },
+  {
+    id: 5,
     name: "Accessories",
     slug: "accessories",
     desc: "Bags, belts, jewelry & finishing touches.",
@@ -51,6 +60,13 @@ const categories = [
     desc: "Elegant traditional outfits for special moments.",
     image: nativeImg,
   },
+  {
+    id: 7,
+    name: "Bags",
+    slug: "bags",
+    desc: "Chic bags for every occasion.",
+    image: bagsImg,
+  }
 ];
 
 export default function ProductCategories() {

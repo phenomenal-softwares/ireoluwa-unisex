@@ -1181,6 +1181,23 @@ const products = [
   rating: 4.1,
   stock: 30,
 },
+
+// == Special Offers ===
+{
+  id: 81,
+  name: "Winter Cardigan",
+  description: "Insulated winter cardigan with soft exterior and warm lining.",
+  price: 18500,
+  salePrice: 12500,
+  onSale: true,
+  image: "/products/special/item-1.jpg",
+  category: "special",
+  sizes: ["M", "L", "XL", "XXL"],
+  colors: ["purple", "black", "grey"],
+  isFeatured: true,
+  rating: 4.7,
+  stock: 10,
+},
 ];
 
 export default products;

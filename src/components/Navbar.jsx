@@ -19,6 +19,7 @@ const categories = [
   { name: "Accessories", slug: "accessories" },
   { name: "Footwear", slug: "footwear" },
   { name: "Native Wears", slug: "native" },
+  { name: "Bags", slug: "bags" },
 ];
 
 function Navbar({ onCartToggle }) {
