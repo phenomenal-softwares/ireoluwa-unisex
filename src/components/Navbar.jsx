@@ -353,7 +353,7 @@ function Navbar({ onCartToggle }) {
                     {categories.map((cat) => (
                       <Link
                         key={cat.slug}
-                        to={`/products?category=${cat.slug}`}
+                        to={`/shop?category=${cat.slug}`}
                         className="text-sm text-gray-700 hover:text-violet-400"
                         onClick={() => {
                           setIsOpen(false);
