@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import topsImg from "../assets/tops.jpg";
 import bottomsImg from "../assets/bottoms.jpg";
 import footwearImg from "../assets/footwear.jpg";
+import gownsImg from "../assets/gowns.jpg";
 import accessoriesImg from "../assets/accessories.jpg";
 import nativeImg from "../assets/native.jpg";
 import suitImg from "../assets/suits.jpg";
@@ -34,34 +35,41 @@ const categories = [
   },
   {
     id: 4,
+    name: "Gowns",
+    slug: "gowns",
+    desc: "Elegant dresses for every occasion.",
+    image: gownsImg,
+  },
+  {
+    id: 5,
     name: "Footwear",
     slug: "footwear",
     desc: "Sneakers, heels, sandals & more.",
     image: footwearImg,
   },
   {
-    id: 5,
+    id: 6,
     name: "Hats & Caps",
     slug: "headwear",
     desc: "Hats, caps & stylish headgear.",
     image: headwearImg,
   },
   {
-    id: 5,
+    id: 7,
     name: "Accessories",
     slug: "accessories",
     desc: "Bags, belts, jewelry & finishing touches.",
     image: accessoriesImg,
   },
   {
-    id: 6,
+    id: 8,
     name: "Native Wear",
     slug: "native",
     desc: "Elegant traditional outfits for special moments.",
     image: nativeImg,
   },
   {
-    id: 7,
+    id: 9,
     name: "Bags",
     slug: "bags",
     desc: "Chic bags for every occasion.",

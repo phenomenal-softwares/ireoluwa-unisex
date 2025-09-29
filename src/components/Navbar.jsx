@@ -15,6 +15,7 @@ const categories = [
   { name: "Suits & Blazers", slug: "suits" },
   { name: "Tops", slug: "tops" },
   { name: "Bottoms", slug: "bottoms" },
+  { name: "Gowns", slug: "gowns" },
   { name: "Headwear", slug: "headwear" },
   { name: "Accessories", slug: "accessories" },
   { name: "Footwear", slug: "footwear" },
